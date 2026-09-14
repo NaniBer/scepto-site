@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import CountUp from "../components/CountUp";
 import Reveal from "../components/Reveal";
@@ -22,9 +22,6 @@ const FACTS = [
 ];
 
 export default function About() {
-  const [logoLayout, setLogoLayout] = useState("logo-desc");
-  const [deptLayout, setDeptLayout] = useState("grid");
-  const [openDept, setOpenDept] = useState(null);
   useEffect(() => {
     document.title = "About — Scepto Import PLC";
   }, []);
@@ -156,58 +153,11 @@ export default function About() {
             eyebrow="04 — Principals"
             title="Brands we represent"
           />
-          <div className="flex items-center gap-2 mt-6 mb-8">
-            <span className="text-xs uppercase tracking-[0.14em] text-mistlight mr-2">Layout</span>
-            <button
-              type="button"
-              onClick={() => setLogoLayout("logo-only")}
-              className={`text-xs font-medium px-3 py-1.5 rounded-full border transition-colors ${
-                logoLayout === "logo-only"
-                  ? "bg-inklight text-paper border-inklight"
-                  : "bg-transparent text-mistlight border-linelight hover:border-mistlight"
-              }`}
-            >
-              Logo only
-            </button>
-            <button
-              type="button"
-              onClick={() => setLogoLayout("logo-desc")}
-              className={`text-xs font-medium px-3 py-1.5 rounded-full border transition-colors ${
-                logoLayout === "logo-desc"
-                  ? "bg-inklight text-paper border-inklight"
-                  : "bg-transparent text-mistlight border-linelight hover:border-mistlight"
-              }`}
-            >
-              Logo + description
-            </button>
-          </div>
-
-          {logoLayout === "logo-only" ? (
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5 mt-10">
-              {PARTNERS.map((partner, i) => (
-                <Reveal key={partner.name} delay={(i % 4) * 80} className="h-full">
-                  <div className="card-light h-full flex items-center justify-center p-8 transition-all duration-200 hover:-translate-y-1 hover:shadow-xl">
-                    {partner.logo ? (
-                      <img
-                        src={partner.logo}
-                        alt={`${partner.name} logo`}
-                        className="h-14 w-auto max-w-[8rem] object-contain"
-                      />
-                    ) : (
-                      <h3 className="font-display font-bold text-lg text-inklight text-center">
-                        {partner.name}
-                      </h3>
-                    )}
-                  </div>
-                </Reveal>
-              ))}
-            </div>
-          ) : (
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 mt-10">
-              {PARTNERS.map((partner, i) => (
-                <Reveal key={partner.name} delay={(i % 3) * 80} className="h-full">
-                  <div className="card-light p-6 h-full flex flex-col relative overflow-hidden transition-all duration-200 hover:-translate-y-1 hover:shadow-xl">
-                    {partner.featured && (
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 mt-10">
+            {PARTNERS.map((partner, i) => (
+              <Reveal key={partner.name} delay={(i % 3) * 80} className="h-full">
+                <div className="card-light p-6 h-full flex flex-col relative overflow-hidden transition-all duration-200 hover:-translate-y-1 hover:shadow-xl">
+                  {partner.featured && (
                       <span
                         className="absolute left-0 right-0 bottom-0 h-1 bg-volt"
                         aria-hidden="true"
@@ -226,9 +176,6 @@ export default function About() {
                         </h3>
                       )}
                     </div>
-                    <p className="text-sm font-light text-mistlight">
-                      {partner.desc}
-                    </p>
                     <div className="mt-5 mt-auto pt-4 border-t border-linelight flex items-center justify-between">
                       <span className="text-xs uppercase tracking-[0.08em] text-mistlight">
                         {partner.origin}
@@ -241,7 +188,6 @@ export default function About() {
                 </Reveal>
               ))}
             </div>
-          )}
         </div>
       </section>
 
@@ -320,188 +266,105 @@ export default function About() {
             eyebrow="05 — Organization"
             title="Departments"
           />
-          <div className="flex flex-wrap items-center gap-2 mt-6 mb-8">
-            <span className="text-xs uppercase tracking-[0.14em] text-mistlight mr-2">Layout</span>
-            {[
-              { id: "grid", label: "Grid" },
-              { id: "marquee", label: "Marquee rail" },
-              { id: "directory", label: "Directory list" },
-              { id: "accordion", label: "Accordion" },
-              { id: "radial", label: "Radial" },
-            ].map((opt) => (
-              <button
-                key={opt.id}
-                type="button"
-                onClick={() => setDeptLayout(opt.id)}
-                className={`text-xs font-medium px-3 py-1.5 rounded-full border transition-colors ${
-                  deptLayout === opt.id
-                    ? "bg-inklight text-paper border-inklight"
-                    : "bg-transparent text-mistlight border-linelight hover:border-mistlight"
-                }`}
-              >
-                {opt.label}
-              </button>
-            ))}
-          </div>
 
-          {deptLayout === "grid" && (
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 mt-10">
-              {DEPARTMENTS.map((dept, i) => (
-                <Reveal key={dept.num} delay={(i % 4) * 60} className="h-full">
-                  <div className="card-light p-5 h-full">
-                    <span className="text-xs font-medium uppercase tracking-[0.14em] text-mistlight">
-                      {dept.num}
-                    </span>
-                    <h3 className="font-display font-semibold text-base text-inklight mt-3">
-                      {dept.name}
-                    </h3>
-                    <p className="text-sm font-light text-mistlight mt-1.5">
-                      {dept.desc}
-                    </p>
-                  </div>
-                </Reveal>
-              ))}
-            </div>
-          )}
-
-          {deptLayout === "marquee" && (
-            <div className="mt-10 overflow-hidden -mx-6 px-6">
-              <div className="marquee">
-                <div className="marquee-track">
-                  {[false, true].map((hidden) => (
-                    <div
-                      key={String(hidden)}
-                      className="flex items-center gap-5"
-                      aria-hidden={hidden || undefined}
-                    >
-                      {DEPARTMENTS.map((dept) => (
-                        <div
-                          key={dept.num}
-                          className="shrink-0 w-[260px] card-light p-6 flex flex-col items-start"
-                        >
-                          <span className="font-display font-bold text-5xl text-inklight/[0.08] leading-none">
-                            {dept.num}
-                          </span>
-                          <h3 className="font-display font-semibold text-base text-inklight mt-3">
-                            {dept.name}
-                          </h3>
-                          <p className="text-sm font-light text-mistlight mt-1.5">
-                            {dept.desc}
-                          </p>
-                        </div>
-                      ))}
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          )}
-
-          {deptLayout === "directory" && (
-            <div className="mt-10 divide-y divide-linelight border-y border-linelight">
-              {DEPARTMENTS.map((dept, i) => (
-                <Reveal key={dept.num} delay={(i % 4) * 40}>
-                  <div className="grid grid-cols-[auto_1fr] md:grid-cols-[auto_1fr_2fr] gap-4 md:gap-8 py-5 items-baseline group hover:bg-linelight/30 transition-colors -mx-4 px-4 rounded-lg">
-                    <span className="font-display font-bold text-lg text-volt tabular-nums w-8">
-                      {dept.num}
-                    </span>
-                    <h3 className="font-display font-semibold text-lg md:text-xl text-inklight">
-                      {dept.name}
-                    </h3>
-                    <p className="text-sm font-light text-mistlight md:col-start-3">
-                      {dept.desc}
-                    </p>
-                  </div>
-                </Reveal>
-              ))}
-            </div>
-          )}
-
-          {deptLayout === "accordion" && (
-            <div className="mt-10 border-y border-linelight divide-y divide-linelight">
-              {DEPARTMENTS.map((dept) => {
-                const isOpen = openDept === dept.num;
-                return (
-                  <div key={dept.num}>
-                    <button
-                      type="button"
-                      onClick={() => setOpenDept(isOpen ? null : dept.num)}
-                      className="w-full flex items-center justify-between gap-4 py-5 text-left group"
-                    >
-                      <div className="flex items-center gap-4">
-                        <span className="font-display font-bold text-sm text-volt tabular-nums w-6">
-                          {dept.num}
-                        </span>
-                        <h3 className="font-display font-semibold text-lg md:text-xl text-inklight">
-                          {dept.name}
-                        </h3>
-                      </div>
-                      <span
-                        className={`text-mistlight transition-transform duration-200 ${
-                          isOpen ? "rotate-45" : ""
-                        }`}
-                        aria-hidden="true"
-                      >
-                        <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none">
-                          <path d="M12 5v14M5 12h14" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-                        </svg>
-                      </span>
-                    </button>
-                    <div
-                      className={`overflow-hidden transition-all duration-300 ease-out ${
-                        isOpen ? "max-h-40 pb-5 opacity-100" : "max-h-0 opacity-0"
-                      }`}
-                    >
-                      <p className="text-sm font-light text-mistlight pl-10 max-w-2xl">
-                        {dept.desc}
-                      </p>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          )}
-
-          {deptLayout === "radial" && (
-            <div className="mt-10 flex items-center justify-center">
+          <div className="mt-10 flex items-center justify-center">
               <div className="relative w-full max-w-[640px] aspect-square">
+                <div
+                  className="absolute inset-0 rounded-full"
+                  style={{
+                    background:
+                      "radial-gradient(circle, rgba(247,181,0,0.08) 0%, rgba(47,128,255,0.04) 50%, transparent 70%)",
+                  }}
+                  aria-hidden="true"
+                />
+                <svg
+                  className="absolute inset-0 w-full h-full"
+                  viewBox="0 0 100 100"
+                  aria-hidden="true"
+                >
+                  {DEPARTMENTS.map((dept, i) => {
+                    const angle =
+                      (i / DEPARTMENTS.length) * 2 * Math.PI - Math.PI / 2;
+                    const x = 50 + Math.cos(angle) * 42;
+                    const y = 50 + Math.sin(angle) * 42;
+                    return (
+                      <line
+                        key={dept.num}
+                        x1="50"
+                        y1="50"
+                        x2={x}
+                        y2={y}
+                        stroke={i % 2 === 0 ? "rgba(247,181,0,0.35)" : "rgba(47,128,255,0.3)"}
+                        strokeWidth="0.4"
+                        strokeDasharray="1 1"
+                      />
+                    );
+                  })}
+                </svg>
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 text-center">
-                  <div className="w-28 h-28 md:w-36 md:h-36 rounded-full bg-bg border-2 border-volt flex items-center justify-center shadow-xl">
+                  <div
+                    className="w-28 h-28 md:w-36 md:h-36 rounded-full flex items-center justify-center shadow-xl"
+                    style={{
+                      background:
+                        "linear-gradient(135deg, #f7b500 0%, #ffc21f 100%)",
+                    }}
+                  >
                     <div>
-                      <p className="text-[10px] uppercase tracking-[0.14em] text-mist font-medium">
+                      <p className="text-[10px] uppercase tracking-[0.14em] text-inklight/70 font-medium">
                         Scepto
                       </p>
-                      <p className="font-display font-bold text-sm md:text-base text-ink mt-1">
+                      <p className="font-display font-bold text-sm md:text-base text-inklight mt-1">
                         Import PLC
                       </p>
                     </div>
                   </div>
                 </div>
                 {DEPARTMENTS.map((dept, i) => {
-                  const angle = (i / DEPARTMENTS.length) * 2 * Math.PI - Math.PI / 2;
+                  const angle =
+                    (i / DEPARTMENTS.length) * 2 * Math.PI - Math.PI / 2;
                   const radius = 42;
                   const x = 50 + Math.cos(angle) * radius;
                   const y = 50 + Math.sin(angle) * radius;
+                  const accent = i % 2 === 0 ? "volt" : "arc";
                   return (
                     <div
                       key={dept.num}
-                      className="absolute -translate-x-1/2 -translate-y-1/2 text-center"
+                      className="absolute -translate-x-1/2 -translate-y-1/2 text-center z-10"
                       style={{ left: `${x}%`, top: `${y}%`, width: "28%" }}
                     >
-                      <div className="card-light p-3 md:p-4 hover:-translate-y-1 hover:shadow-xl transition-all">
-                        <span className="text-[9px] font-medium uppercase tracking-[0.12em] text-volt block">
+                      <div
+                        className="card-light p-3 md:p-4 hover:-translate-y-1 hover:shadow-xl transition-all relative overflow-hidden"
+                        style={{
+                          borderColor:
+                            accent === "volt"
+                              ? "rgba(247,181,0,0.4)"
+                              : "rgba(47,128,255,0.35)",
+                        }}
+                      >
+                        <span
+                          className={`text-[9px] font-medium uppercase tracking-[0.12em] block ${
+                            accent === "volt" ? "text-volt" : "text-arc"
+                          }`}
+                        >
                           {dept.num}
                         </span>
                         <h3 className="font-display font-semibold text-[11px] md:text-sm text-inklight mt-1 leading-tight">
                           {dept.name}
                         </h3>
+                        <span
+                          className="absolute bottom-0 left-0 right-0 h-0.5"
+                          style={{
+                            background:
+                              accent === "volt" ? "#f7b500" : "#2f80ff",
+                          }}
+                          aria-hidden="true"
+                        />
                       </div>
                     </div>
                   );
                 })}
               </div>
             </div>
-          )}
         </div>
       </section>
 

@@ -4,7 +4,6 @@ import Magnetic from "../components/Magnetic";
 import Reveal from "../components/Reveal";
 import SectionHead from "../components/SectionHead";
 import {
-  TAGLINE,
   BLURB,
   CONTACT,
   HERO_SLIDES,
@@ -14,14 +13,14 @@ import {
 } from "../data/content";
 
 const MARQUEE_LOGOS = [
-  { name: "JA Solar", src: "/images/logos/ja-solar.svg" },
-  { name: "KSTAR", src: "/images/logos/kstar.png" },
-  { name: "Franklin Electric", src: "/images/logos/franklin-electric.png" },
-  { name: "Keypower", src: "/images/logos/keypower.png" },
-  { name: "Shiyuan", src: "/images/logos/shiyuan.png" },
-  { name: "MICNO", src: "/images/logos/micno.png" },
-  { name: "Kaz", src: null },
-  { name: "Pibo Electric", src: null },
+  { name: "JA Solar", src: "/images/logos/ja-solar.svg", mono: true },
+  { name: "KSTAR", src: "/images/logos/kstar.png", mono: false },
+  { name: "Franklin Electric", src: "/images/logos/franklin-electric.png", mono: true },
+  { name: "Keypower", src: "/images/logos/keypower.png", mono: true },
+  { name: "Shiyuan", src: "/images/logos/shiyuan.png", mono: true },
+  { name: "MICNO", src: "/images/logos/micno.png", mono: true },
+  { name: "Kaz", src: "/images/logos/KAZ.png", mono: false },
+  { name: "Pibo Electric", src: "/images/logos/PIBO.jpeg", mono: false },
 ];
 
 const WHY_ROWS = [
@@ -235,14 +234,6 @@ export default function Home() {
         <div className="hero-grid" aria-hidden="true" />
         <div className="shell grid lg:grid-cols-[1.05fr_0.95fr] gap-14 items-center">
           <div>
-            <Reveal>
-              <div className="flex items-center gap-3">
-                <span className="pulse-dot" />
-                <p className="text-xs uppercase tracking-[0.14em] text-mist font-medium">
-                  {TAGLINE}
-                </p>
-              </div>
-            </Reveal>
             <Reveal delay={70}>
               <h1
                 className="font-display font-bold text-[clamp(2.6rem,6vw,4.3rem)] leading-[1.04] mt-6"
@@ -327,7 +318,11 @@ export default function Home() {
                           src={logo.src}
                           alt={logo.name}
                           className="h-5 md:h-6 w-auto max-w-[8rem] object-contain opacity-60"
-                          style={{ filter: "brightness(0) invert(1)" }}
+                          style={
+                            logo.mono
+                              ? { filter: "brightness(0) invert(1)" }
+                              : undefined
+                          }
                         />
                       ) : (
                         <span className="uppercase text-xs tracking-[0.16em] text-mist/80 font-light">
@@ -347,7 +342,7 @@ export default function Home() {
       </section>
 
       <section className="bg-bg py-16 md:py-24">
-        <div className="shell grid grid-cols-2 lg:grid-cols-4 gap-10">
+        <div className="shell grid grid-cols-1 sm:grid-cols-3 gap-10">
           {STATS.map((stat, i) => (
             <Stat key={stat.label} stat={stat} delay={i * 80} />
           ))}

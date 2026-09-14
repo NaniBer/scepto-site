@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { NAV, CONTACT, SOCIALS, BLURB, TAGLINE } from "../data/content.js";
+import { NAV, CONTACT, SOCIALS, BLURB } from "../data/content.js";
 
 export default function Footer() {
   const year = new Date().getFullYear();
@@ -64,12 +64,8 @@ export default function Footer() {
       </div>
 
       <div className="border-t border-line">
-        <div className="shell py-6 flex flex-col md:flex-row items-center justify-between gap-3 text-xs text-mist/70 font-light">
+        <div className="shell py-6 flex items-center justify-center gap-3 text-xs text-mist/70 font-light">
           <span>© {year} Scepto Import PLC. All rights reserved.</span>
-          <span className="flex items-center gap-2">
-            <span className="w-1.5 h-1.5 rounded-full bg-volt inline-block" />
-            {TAGLINE}
-          </span>
         </div>
       </div>
     </footer>

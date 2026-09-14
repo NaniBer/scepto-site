@@ -58,10 +58,9 @@ export const HERO_SLIDES = [
 ];
 
 export const STATS = [
-  { num: 5, prefix: "Top ", suffix: "", label: "Global UPS market — KSTAR" },
-  { num: 50, prefix: "", suffix: "+", label: "Years — Franklin Electric" },
-  { num: 100, prefix: "", suffix: "%", label: "Products QC tested" },
-  { num: 1, prefix: "", suffix: "st", label: "JA Solar agent in Ethiopia" },
+  { num: 14, prefix: "", suffix: "+", label: "Years of Experience" },
+  { num: 8, prefix: "", suffix: "+", label: "Trusted Brands" },
+  { num: 50, prefix: "", suffix: "+", label: "Major Projects" },
 ];
 
 export const CATEGORIES = [
@@ -220,7 +219,7 @@ export const PARTNERS = [
   },
   {
     name: "Kaz",
-    logo: null,
+    logo: "/images/logos/KAZ.png",
     desc: "Water filtration units and treatment media for potable and process water.",
     origin: "China",
     status: "Supply Partner",
@@ -228,7 +227,7 @@ export const PARTNERS = [
   },
   {
     name: "Pibo Electric",
-    logo: null,
+    logo: "/images/logos/PIBO.jpeg",
     desc: "Control panels, switchgear and automation assemblies built to specification.",
     origin: "China",
     status: "Supply Partner",
