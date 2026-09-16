@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import Magnetic from "../components/Magnetic";
 import Reveal from "../components/Reveal";
-import { CONTACT, SOCIALS } from "../data/content";
+import { SOCIALS } from "../data/content";
+import { useContent } from "../data/ContentContext";
 
 const EMPTY = { name: "", email: "", subject: "", message: "", website: "" };
 
@@ -26,6 +27,7 @@ function Field({ id, label, error, children }) {
 }
 
 export default function Contact() {
+  const { contact: CONTACT } = useContent();
   const [form, setForm] = useState(EMPTY);
   const [errors, setErrors] = useState({});
   const [status, setStatus] = useState("idle");

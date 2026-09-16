@@ -3,28 +3,29 @@ import { Link } from "react-router-dom";
 import CountUp from "../components/CountUp";
 import Reveal from "../components/Reveal";
 import SectionHead from "../components/SectionHead";
-import {
-  CONTACT,
-  VIDEO_EMBED,
-  BLURB,
-  ABOUT_PARAGRAPHS,
-  ABOUT_MOTTO,
-  SECTORS,
-  PROCESS,
-  PARTNERS,
-  DEPARTMENTS,
-} from "../data/content";
-
-const FACTS = [
-  { num: 10, label: " product lines" },
-  { num: 8, label: " principal partners" },
-  { num: 8, label: " departments" },
-];
+import { useContent } from "../data/ContentContext";
 
 export default function About() {
+  const {
+    contact: CONTACT,
+    videoEmbed: VIDEO_EMBED,
+    blurb: BLURB,
+    aboutParagraphs: ABOUT_PARAGRAPHS,
+    aboutMotto: ABOUT_MOTTO,
+    sectors: SECTORS,
+    process: PROCESS,
+    partners: PARTNERS,
+    departments: DEPARTMENTS,
+  } = useContent();
   useEffect(() => {
     document.title = "About — Scepto Import PLC";
   }, []);
+
+  const FACTS = [
+    { num: 10, label: " product lines" },
+    { num: (PARTNERS || []).length, label: " principal partners" },
+    { num: (DEPARTMENTS || []).length, label: " departments" },
+  ];
 
   return (
     <>
@@ -259,22 +260,28 @@ export default function About() {
         </div>
       </section>
 
-      <section className="bg-paper text-inklight py-20 md:py-28">
+      <section className="bg-bg text-ink py-20 md:py-28 relative overflow-hidden">
         <div className="shell">
           <SectionHead
-            tone="light"
             eyebrow="05 — Organization"
             title="Departments"
           />
-
-          <div className="mt-10 flex items-center justify-center">
-              <div className="relative w-full max-w-[640px] aspect-square">
+          <div className="mt-12 flex items-center justify-center">
+              <div className="relative w-full max-w-[680px] aspect-square">
                 <div
-                  className="absolute inset-0 rounded-full"
+                  className="absolute inset-[8%] rounded-full"
                   style={{
                     background:
-                      "radial-gradient(circle, rgba(247,181,0,0.08) 0%, rgba(47,128,255,0.04) 50%, transparent 70%)",
+                      "radial-gradient(circle, rgba(247,181,0,0.12) 0%, rgba(47,128,255,0.06) 40%, transparent 70%)",
                   }}
+                  aria-hidden="true"
+                />
+                <div
+                  className="absolute inset-[18%] rounded-full border border-volt/20"
+                  aria-hidden="true"
+                />
+                <div
+                  className="absolute inset-[4%] rounded-full border border-line/40"
                   aria-hidden="true"
                 />
                 <svg
@@ -294,26 +301,29 @@ export default function About() {
                         y1="50"
                         x2={x}
                         y2={y}
-                        stroke={i % 2 === 0 ? "rgba(247,181,0,0.35)" : "rgba(47,128,255,0.3)"}
-                        strokeWidth="0.4"
-                        strokeDasharray="1 1"
+                        stroke={i % 2 === 0 ? "rgba(247,181,0,0.4)" : "rgba(47,128,255,0.35)"}
+                        strokeWidth="0.5"
+                        strokeDasharray="1.5 1.5"
                       />
                     );
                   })}
                 </svg>
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 text-center">
                   <div
-                    className="w-28 h-28 md:w-36 md:h-36 rounded-full flex items-center justify-center shadow-xl"
+                    className="w-32 h-32 md:w-40 md:h-40 rounded-full flex items-center justify-center shadow-2xl"
                     style={{
                       background:
-                        "linear-gradient(135deg, #f7b500 0%, #ffc21f 100%)",
+                        "linear-gradient(135deg, #f7b500 0%, #ffc21f 50%, #f7b500 100%)",
+                      boxShadow: "0 0 40px rgba(247,181,0,0.3)",
                     }}
                   >
                     <div>
-                      <p className="text-[10px] uppercase tracking-[0.14em] text-inklight/70 font-medium">
-                        Scepto
-                      </p>
-                      <p className="font-display font-bold text-sm md:text-base text-inklight mt-1">
+                      <img
+                        src="/images/scepto-logo.png"
+                        alt="Scepto Import PLC"
+                        className="h-10 md:h-12 w-auto mx-auto brightness-0 invert"
+                      />
+                      <p className="font-display font-bold text-xs md:text-sm text-inklight mt-2">
                         Import PLC
                       </p>
                     </div>
@@ -330,32 +340,35 @@ export default function About() {
                     <div
                       key={dept.num}
                       className="absolute -translate-x-1/2 -translate-y-1/2 text-center z-10"
-                      style={{ left: `${x}%`, top: `${y}%`, width: "28%" }}
+                      style={{ left: `${x}%`, top: `${y}%`, width: "30%" }}
                     >
                       <div
-                        className="card-light p-3 md:p-4 hover:-translate-y-1 hover:shadow-xl transition-all relative overflow-hidden"
+                        className="rounded-xl p-3 md:p-4 hover:-translate-y-1.5 transition-all duration-200 relative overflow-hidden backdrop-blur"
                         style={{
-                          borderColor:
+                          background:
                             accent === "volt"
-                              ? "rgba(247,181,0,0.4)"
-                              : "rgba(47,128,255,0.35)",
+                              ? "linear-gradient(135deg, rgba(247,181,0,0.12), rgba(247,181,0,0.04))"
+                              : "linear-gradient(135deg, rgba(47,128,255,0.12), rgba(47,128,255,0.04))",
+                          border: `1px solid ${accent === "volt" ? "rgba(247,181,0,0.35)" : "rgba(47,128,255,0.3)"}`,
+                          boxShadow: `0 4px 20px ${accent === "volt" ? "rgba(247,181,0,0.08)" : "rgba(47,128,255,0.08)"}`,
                         }}
                       >
                         <span
-                          className={`text-[9px] font-medium uppercase tracking-[0.12em] block ${
-                            accent === "volt" ? "text-volt" : "text-arc"
-                          }`}
+                          className="font-display font-bold text-lg md:text-xl block leading-none mb-1"
+                          style={{ color: accent === "volt" ? "#f7b500" : "#2f80ff" }}
                         >
                           {dept.num}
                         </span>
-                        <h3 className="font-display font-semibold text-[11px] md:text-sm text-inklight mt-1 leading-tight">
+                        <h3 className="font-display font-semibold text-[11px] md:text-sm text-ink mt-1 leading-tight">
                           {dept.name}
                         </h3>
                         <span
-                          className="absolute bottom-0 left-0 right-0 h-0.5"
+                          className="absolute bottom-0 left-0 right-0 h-1"
                           style={{
                             background:
-                              accent === "volt" ? "#f7b500" : "#2f80ff",
+                              accent === "volt"
+                                ? "linear-gradient(90deg, #f7b500, transparent)"
+                                : "linear-gradient(90deg, #2f80ff, transparent)",
                           }}
                           aria-hidden="true"
                         />

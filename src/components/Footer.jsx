@@ -1,7 +1,9 @@
 import { Link } from "react-router-dom";
-import { NAV, CONTACT, SOCIALS, BLURB } from "../data/content.js";
+import { NAV, SOCIALS } from "../data/content.js";
+import { useContent } from "../data/ContentContext.jsx";
 
 export default function Footer() {
+  const { contact: CONTACT, blurb: BLURB } = useContent();
   const year = new Date().getFullYear();
   return (
     <footer className="bg-deep border-t border-line">

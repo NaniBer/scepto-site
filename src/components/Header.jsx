@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
-import { NAV, CONTACT, SOCIALS } from "../data/content.js";
+import { NAV, SOCIALS } from "../data/content.js";
+import { useContent } from "../data/ContentContext.jsx";
 
 export default function Header() {
+  const { contact: CONTACT } = useContent();
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
 

@@ -3,25 +3,9 @@ import { Link } from "react-router-dom";
 import Magnetic from "../components/Magnetic";
 import Reveal from "../components/Reveal";
 import SectionHead from "../components/SectionHead";
-import {
-  BLURB,
-  CONTACT,
-  HERO_SLIDES,
-  STATS,
-  DOMAINS,
-  PRODUCTS,
-} from "../data/content";
+import { useContent } from "../data/ContentContext";
 
-const MARQUEE_LOGOS = [
-  { name: "JA Solar", src: "/images/logos/ja-solar.svg", mono: true },
-  { name: "KSTAR", src: "/images/logos/kstar.png", mono: false },
-  { name: "Franklin Electric", src: "/images/logos/franklin-electric.png", mono: true },
-  { name: "Keypower", src: "/images/logos/keypower.png", mono: true },
-  { name: "Shiyuan", src: "/images/logos/shiyuan.png", mono: true },
-  { name: "MICNO", src: "/images/logos/micno.png", mono: true },
-  { name: "Kaz", src: "/images/logos/KAZ.png", mono: false },
-  { name: "Pibo Electric", src: "/images/logos/PIBO.jpeg", mono: false },
-];
+const MONO_LOGOS = ["ja-solar.svg", "franklin-electric.png", "keypower.png", "shiyuan.png", "micno.png"];
 
 const WHY_ROWS = [
   {
@@ -89,9 +73,8 @@ function Stat({ stat, delay }) {
   );
 }
 
-const domainLabel = (id) => DOMAINS.find((d) => d.id === id)?.label;
-
-function HomeRail() {
+function HomeRail({ products: PRODUCTS, domains: DOMAINS }) {
+  const domainLabel = (id) => DOMAINS.find((d) => d.id === id)?.label;
   const ref = useRef(null);
   const hoverRef = useRef(false);
   const interactRef = useRef(false);
@@ -211,8 +194,15 @@ function HomeRail() {
 }
 
 export default function Home() {
+  const { blurb: BLURB, contact: CONTACT, heroSlides: HERO_SLIDES, stats: STATS, domains: DOMAINS, products: PRODUCTS, partners: PARTNERS } = useContent();
   const [slide, setSlide] = useState(0);
   const [paused, setPaused] = useState(false);
+
+  const MARQUEE_LOGOS = (PARTNERS || []).map((p) => ({
+    name: p.name,
+    src: p.logo,
+    mono: p.logo && MONO_LOGOS.some((m) => p.logo.includes(m)),
+  }));
 
   useEffect(() => {
     document.title = "Scepto Import PLC — Power · Solar · Water · Ethiopia";
@@ -364,7 +354,7 @@ export default function Home() {
         </div>
       </section>
 
-      <HomeRail />
+      <HomeRail products={PRODUCTS} domains={DOMAINS} />
 
       <section className="bg-bg py-20 md:py-28">
         <div className="shell grid lg:grid-cols-2 gap-12 items-center">

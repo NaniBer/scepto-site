@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 import Magnetic from "../components/Magnetic";
 import Reveal from "../components/Reveal";
 import SectionHead from "../components/SectionHead";
-import { CONTACT, PRODUCTS } from "../data/content";
+import { useContent } from "../data/ContentContext";
 
-function Editorial() {
+function Editorial({ products: PRODUCTS, contact: CONTACT }) {
   const SUBHEADS = {
     "01": "Tier-1 performance for every rooftop and farm",
     "02": "Off-grid to hybrid, monitored from your phone",
@@ -127,6 +127,7 @@ function Editorial() {
 }
 
 export default function Products() {
+  const { products: PRODUCTS, contact: CONTACT } = useContent();
   useEffect(() => {
     document.title = "Products — Scepto Import PLC";
   }, []);
@@ -164,7 +165,7 @@ export default function Products() {
         </div>
       </section>
 
-      <Editorial />
+      <Editorial products={PRODUCTS} contact={CONTACT} />
 
       <section className="bg-volt">
         <div className="shell py-16 md:py-20 flex flex-col md:flex-row md:items-center justify-between gap-8">
