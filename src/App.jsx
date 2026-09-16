@@ -21,12 +21,13 @@ function ScrollToTop() {
 
 export default function App() {
   const { pathname } = useLocation();
+  const isAdmin = pathname.startsWith("/admin");
   return (
     <ContentProvider>
       <div className="bg-bg text-ink font-body min-h-screen antialiased">
         <ScrollToTop />
         <ScrollProgress />
-        <Header />
+        {!isAdmin && <Header />}
         <main key={pathname} className="page-fade">
           <Routes>
             <Route path="/" element={<Home />} />
@@ -37,8 +38,8 @@ export default function App() {
             <Route path="*" element={<Home />} />
           </Routes>
         </main>
-        <Footer />
-        <SocialRail />
+        {!isAdmin && <Footer />}
+        {!isAdmin && <SocialRail />}
       </div>
     </ContentProvider>
   );

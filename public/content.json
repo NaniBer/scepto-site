@@ -19,65 +19,352 @@
     "emailHref": "mailto:info@scepto.net"
   },
   "heroSlides": [
-    { "src": "/images/products/kstar-hybrid-inverter.png", "alt": "KSTAR 30–125kW IP65 Hybrid Inverter" },
-    { "src": "/images/products/generator-kp-bd20p.jpg", "alt": "KP-BD20P Diesel Generator" },
-    { "src": "/images/products/generator-large.jpg", "alt": "High-capacity Diesel Generator" },
-    { "src": "/images/products/solar-panel.jpg", "alt": "JA Solar PV Module" },
-    { "src": "/images/products/kstar-hh6ks-allinone.png", "alt": "KSTAR All-in-One Storage" }
+    {
+      "src": "/images/products/kstar-hybrid-inverter.png",
+      "alt": "KSTAR 30–125kW IP65 Hybrid Inverter"
+    },
+    {
+      "src": "/images/products/generator-kp-bd20p.jpg",
+      "alt": "KP-BD20P Diesel Generator"
+    },
+    {
+      "src": "/images/products/generator-large.jpg",
+      "alt": "High-capacity Diesel Generator"
+    },
+    {
+      "src": "/images/products/solar-panel.jpg",
+      "alt": "JA Solar PV Module"
+    },
+    {
+      "src": "/images/products/kstar-hh6ks-allinone.png",
+      "alt": "KSTAR All-in-One Storage"
+    }
   ],
   "stats": [
-    { "num": 14, "prefix": "", "suffix": "+", "label": "Years of Experience" },
-    { "num": 8, "prefix": "", "suffix": "+", "label": "Trusted Brands" },
-    { "num": 50, "prefix": "", "suffix": "+", "label": "Major Projects" }
+    {
+      "num": 14,
+      "prefix": "",
+      "suffix": "+",
+      "label": "Years of Experience"
+    },
+    {
+      "num": 8,
+      "prefix": "",
+      "suffix": "+",
+      "label": "Trusted Brands"
+    },
+    {
+      "num": 50,
+      "prefix": "",
+      "suffix": "+",
+      "label": "Major Projects"
+    }
   ],
   "partners": [
-    { "name": "JA Solar", "logo": "/images/logos/ja-solar.svg", "desc": "Tier-1 photovoltaic modules, 520–720W+, high efficiency with low degradation.", "origin": "China", "status": "Sole Agent — Ethiopia", "featured": true },
-    { "name": "KSTAR", "logo": "/images/logos/kstar.png", "desc": "UPS, hybrid inverters, lithium storage and precision cooling. Top-5 global UPS brand.", "origin": "China", "status": "Authorized Dealer", "featured": true },
-    { "name": "Keypower", "logo": "/images/logos/keypower.png", "desc": "Diesel generators, 10–3000 kVA, silent and open type, plus portables.", "origin": "China", "status": "Supply Partner", "featured": false },
-    { "name": "Franklin Electric / IMPO", "logo": "/images/logos/franklin-electric.png", "desc": "Submersible, solar and booster pumps. Deep-well and booster sets, 4″ to 12″.", "origin": "USA / Turkey", "status": "Supply Partner", "featured": false },
-    { "name": "Shiyuan", "logo": "/images/logos/shiyuan.png", "desc": "Solar and surface pumps for irrigation, domestic and industrial applications.", "origin": "China", "status": "Supply Partner", "featured": false },
-    { "name": "Kaz", "logo": "/images/logos/KAZ.png", "desc": "Water filtration units and treatment media for potable and process water.", "origin": "China", "status": "Supply Partner", "featured": false },
-    { "name": "Pibo Electric", "logo": "/images/logos/PIBO.jpeg", "desc": "Control panels, switchgear and automation assemblies built to specification.", "origin": "China", "status": "Supply Partner", "featured": false },
-    { "name": "MICNO", "logo": "/images/logos/micno.png", "desc": "Solar pump inverters, IP54/IP65, for off-grid and hybrid water pumping systems.", "origin": "China", "status": "Supply Partner", "featured": false }
+    {
+      "name": "JA Solar",
+      "logo": "/images/logos/ja-solar.svg",
+      "desc": "Tier-1 photovoltaic modules, 520–720W+, high efficiency with low degradation.",
+      "origin": "China",
+      "status": "Sole Agent — Ethiopia",
+      "featured": true
+    },
+    {
+      "name": "KSTAR",
+      "logo": "/images/logos/kstar.png",
+      "desc": "UPS, hybrid inverters, lithium storage and precision cooling. Top-5 global UPS brand.",
+      "origin": "China",
+      "status": "Authorized Dealer",
+      "featured": true
+    },
+    {
+      "name": "Keypower",
+      "logo": "/images/logos/keypower.png",
+      "desc": "Diesel generators, 10–3000 kVA, silent and open type, plus portables.",
+      "origin": "China",
+      "status": "Supply Partner",
+      "featured": false
+    },
+    {
+      "name": "Franklin Electric / IMPO",
+      "logo": "/images/logos/franklin-electric.png",
+      "desc": "Submersible, solar and booster pumps. Deep-well and booster sets, 4″ to 12″.",
+      "origin": "USA / Turkey",
+      "status": "Supply Partner",
+      "featured": false
+    },
+    {
+      "name": "Shiyuan",
+      "logo": "/images/logos/shiyuan.png",
+      "desc": "Solar and surface pumps for irrigation, domestic and industrial applications.",
+      "origin": "China",
+      "status": "Supply Partner",
+      "featured": false
+    },
+    {
+      "name": "Kaz",
+      "logo": "/images/logos/KAZ.png",
+      "desc": "Water filtration units and treatment media for potable and process water.",
+      "origin": "China",
+      "status": "Supply Partner",
+      "featured": false
+    },
+    {
+      "name": "Pibo Electric",
+      "logo": "/images/logos/PIBO.jpeg",
+      "desc": "Control panels, switchgear and automation assemblies built to specification.",
+      "origin": "China",
+      "status": "Supply Partner",
+      "featured": false
+    },
+    {
+      "name": "MICNO",
+      "logo": "/images/logos/micno.png",
+      "desc": "Solar pump inverters, IP54/IP65, for off-grid and hybrid water pumping systems.",
+      "origin": "China",
+      "status": "Supply Partner",
+      "featured": false
+    }
   ],
   "products": [
-    { "num": "01", "domain": "solar", "title": "Solar PV Modules", "brand": "JA Solar", "desc": "520W, 630W, 720W and above. High efficiency, low degradation, durable construction. Tier-1 photovoltaic modules built to perform in demanding environments.", "tags": ["520W", "630W", "720W+", "Low degradation", "High efficiency"], "note": "Sole authorized agent — Ethiopia", "img": "/images/products/solar-panel.jpg", "featured": true },
-    { "num": "02", "domain": "solar", "title": "Hybrid Inverters", "brand": "KSTAR", "desc": "3.6kW Knight off-grid to 125kW IP65 hybrid inverters with on/off-grid capability, surge protection and app monitoring.", "tags": ["3.6–6kW", "30–125kW IP65", "98.7% efficiency"], "img": "/images/products/kstar-hh6ks-allinone.png" },
-    { "num": "03", "domain": "solar", "title": "Energy Storage", "brand": "CATL & EVE LFP", "desc": "IP21 indoor and IP54 outdoor lithium cabinets, scalable with intelligent fan cooling and 10ms backup switching.", "tags": ["60–260 kWh", "6,000 cycles", "192–832V"], "img": "/images/products/lithium-battery.jpg" },
-    { "num": "04", "domain": "power", "title": "UPS Systems", "brand": "KSTAR", "desc": "Transformer-based, transformerless and modular systems for banking, IT and industry.", "tags": ["UID 10–800 kVA", "HPM Modular", "VRLA"], "img": "/images/products/kstar-6kva-tower.png" },
-    { "num": "05", "domain": "data", "title": "Precision Cooling", "brand": "FocusAir · MatrixAir", "desc": "Free-cooling, in-row units and StationAir for data centres, comms rooms and labs.", "tags": ["Free-cooling", "In-row", "365-day duty"], "img": "/images/products/kstar-cooling.png" },
-    { "num": "06", "domain": "power", "title": "Generators", "brand": "Keypower", "desc": "10–3000 kVA diesel, silent & open, plus portables.", "tags": ["10–3000 kVA", "Silent", "ATS"], "img": "/images/products/generator-kp-bd20p.jpg" },
-    { "num": "07", "domain": "water", "title": "Pumps", "brand": "Franklin Electric · Shiyuan", "desc": "4″–12″ deep-well submersible and solar pumps.", "tags": ["Franklin Electric", "Shiyuan", "Submersible"], "img": "/images/products/pump.png" },
-    { "num": "08", "domain": "water", "title": "Water Treatment & Controls", "brand": "Kaz · Pibo Electric", "desc": "Kaz filtration units, treatment media, and Pibo Electric control panels, switchgear and automation assemblies.", "tags": ["Kaz", "Pibo Electric", "Filtration", "Switchgear"], "img": "/images/products/ro-drinking.jpeg" },
-    { "num": "09", "domain": "data", "title": "Data Centres", "brand": "KSTAR", "desc": "Micro to full-scale — pre-integrated racks, aisles, monitoring.", "tags": ["Pre-integrated", "Monitoring", "Racks"], "img": "/images/products/data-center.png" },
-    { "num": "10", "domain": "water", "title": "Steel Casings & Riser Pipes", "brand": "Scepto Supply", "desc": "Blind & screen borehole casings (6″–12″) and riser pipes, built for aggressive water chemistry.", "tags": ["6″–12″", "Blind & screen", "Riser pipes"], "img": "/images/products/steel-casings.png" }
+    {
+      "num": "01",
+      "domain": "solar",
+      "title": "Solar PV Modules",
+      "brand": "JA Solar",
+      "desc": "520W, 630W, 720W and above. High efficiency, low degradation, durable construction. Tier-1 photovoltaic modules built to perform in demanding environments.",
+      "tags": [
+        "520W",
+        "630W",
+        "720W+",
+        "Low degradation",
+        "High efficiency"
+      ],
+      "note": "Sole authorized agent — Ethiopia",
+      "img": "/images/products/solar-panel.jpg",
+      "featured": true
+    },
+    {
+      "num": "02",
+      "domain": "solar",
+      "title": "Hybrid Inverters",
+      "brand": "KSTAR",
+      "desc": "3.6kW Knight off-grid to 125kW IP65 hybrid inverters with on/off-grid capability, surge protection and app monitoring.",
+      "tags": [
+        "3.6–6kW",
+        "30–125kW IP65",
+        "98.7% efficiency"
+      ],
+      "img": "/images/products/kstar-hh6ks-allinone.png"
+    },
+    {
+      "num": "03",
+      "domain": "solar",
+      "title": "Energy Storage",
+      "brand": "CATL & EVE LFP",
+      "desc": "IP21 indoor and IP54 outdoor lithium cabinets, scalable with intelligent fan cooling and 10ms backup switching.",
+      "tags": [
+        "60–260 kWh",
+        "6,000 cycles",
+        "192–832V"
+      ],
+      "img": "/images/products/lithium-battery.jpg"
+    },
+    {
+      "num": "04",
+      "domain": "power",
+      "title": "UPS Systems",
+      "brand": "KSTAR",
+      "desc": "Transformer-based, transformerless and modular systems for banking, IT and industry.",
+      "tags": [
+        "UID 10–800 kVA",
+        "HPM Modular",
+        "VRLA"
+      ],
+      "img": "/images/products/kstar-6kva-tower.png"
+    },
+    {
+      "num": "05",
+      "domain": "data",
+      "title": "Precision Cooling",
+      "brand": "FocusAir · MatrixAir",
+      "desc": "Free-cooling, in-row units and StationAir for data centres, comms rooms and labs.",
+      "tags": [
+        "Free-cooling",
+        "In-row",
+        "365-day duty"
+      ],
+      "img": "/images/products/kstar-cooling.png"
+    },
+    {
+      "num": "06",
+      "domain": "power",
+      "title": "Generators",
+      "brand": "Keypower",
+      "desc": "10–3000 kVA diesel, silent & open, plus portables.",
+      "tags": [
+        "10–3000 kVA",
+        "Silent",
+        "ATS"
+      ],
+      "img": "/images/products/generator-kp-bd20p.jpg"
+    },
+    {
+      "num": "07",
+      "domain": "water",
+      "title": "Pumps",
+      "brand": "Franklin Electric · Shiyuan",
+      "desc": "4″–12″ deep-well submersible and solar pumps.",
+      "tags": [
+        "Franklin Electric",
+        "Shiyuan",
+        "Submersible"
+      ],
+      "img": "/images/products/pump.png"
+    },
+    {
+      "num": "08",
+      "domain": "water",
+      "title": "Water Treatment & Controls",
+      "brand": "Kaz · Pibo Electric",
+      "desc": "Kaz filtration units, treatment media, and Pibo Electric control panels, switchgear and automation assemblies.",
+      "tags": [
+        "Kaz",
+        "Pibo Electric",
+        "Filtration",
+        "Switchgear"
+      ],
+      "img": "/images/products/ro-drinking.jpeg"
+    },
+    {
+      "num": "09",
+      "domain": "data",
+      "title": "Data Centres",
+      "brand": "KSTAR",
+      "desc": "Micro to full-scale — pre-integrated racks, aisles, monitoring.",
+      "tags": [
+        "Pre-integrated",
+        "Monitoring",
+        "Racks"
+      ],
+      "img": "/images/products/data-center.png"
+    },
+    {
+      "num": "10",
+      "domain": "water",
+      "title": "Steel Casings & Riser Pipes",
+      "brand": "Scepto Supply",
+      "desc": "Blind & screen borehole casings (6″–12″) and riser pipes, built for aggressive water chemistry.",
+      "tags": [
+        "6″–12″",
+        "Blind & screen",
+        "Riser pipes"
+      ],
+      "img": "/images/products/steel-casings.png"
+    }
   ],
   "sectors": [
-    { "sector": "Agriculture", "desc": "Solar irrigation, deep-well and booster pumping for farms and cooperatives.", "tag": "Pumps" },
-    { "sector": "Banking & IT", "desc": "UPS, batteries, precision cooling and pre-integrated data centres.", "tag": "UPS" },
-    { "sector": "Industry", "desc": "Generators, control panels, chemical process and specialty/vortex/marine pumps.", "tag": "Gensets" },
-    { "sector": "Households", "desc": "Rooftop solar, hybrid inverters and all-in-one lithium packs with app monitoring.", "tag": "Solar" }
+    {
+      "sector": "Agriculture",
+      "desc": "Solar irrigation, deep-well and booster pumping for farms and cooperatives.",
+      "tag": "Pumps"
+    },
+    {
+      "sector": "Banking & IT",
+      "desc": "UPS, batteries, precision cooling and pre-integrated data centres.",
+      "tag": "UPS"
+    },
+    {
+      "sector": "Industry",
+      "desc": "Generators, control panels, chemical process and specialty/vortex/marine pumps.",
+      "tag": "Gensets"
+    },
+    {
+      "sector": "Households",
+      "desc": "Rooftop solar, hybrid inverters and all-in-one lithium packs with app monitoring.",
+      "tag": "Solar"
+    }
   ],
   "process": [
-    { "num": "01", "title": "Site assessment", "desc": "Load profile, water demand, site survey." },
-    { "num": "02", "title": "System design", "desc": "Sizing, single-line drawings, quotation." },
-    { "num": "03", "title": "Supply & install", "desc": "Stocked in Addis, installed by our crew." },
-    { "num": "04", "title": "Service", "desc": "Spares, maintenance, warranty support." }
+    {
+      "num": "01",
+      "title": "Site assessment",
+      "desc": "Load profile, water demand, site survey."
+    },
+    {
+      "num": "02",
+      "title": "System design",
+      "desc": "Sizing, single-line drawings, quotation."
+    },
+    {
+      "num": "03",
+      "title": "Supply & install",
+      "desc": "Stocked in Addis, installed by our crew."
+    },
+    {
+      "num": "04",
+      "title": "Service",
+      "desc": "Spares, maintenance, warranty support."
+    }
   ],
   "departments": [
-    { "num": "01", "name": "Sales Engineering", "desc": "System sizing, quotations and technical proposals." },
-    { "num": "02", "name": "Customer Service", "desc": "Enquiries, order status and walk-in support." },
-    { "num": "03", "name": "After-Sales Management", "desc": "Commissioning, maintenance and warranty." },
-    { "num": "04", "name": "Tender", "desc": "Public and private bid preparation." },
-    { "num": "05", "name": "Logistics", "desc": "Import, clearing and nationwide delivery." },
-    { "num": "06", "name": "Marketing", "desc": "Brand, catalogue and trade communications." },
-    { "num": "07", "name": "Finance", "desc": "Invoicing, terms and LC documentation." },
-    { "num": "08", "name": "HR & Admin", "desc": "People, facilities and office operations." }
+    {
+      "num": "01",
+      "name": "Sales Engineering",
+      "desc": "System sizing, quotations and technical proposals."
+    },
+    {
+      "num": "02",
+      "name": "Customer Service",
+      "desc": "Enquiries, order status and walk-in support."
+    },
+    {
+      "num": "03",
+      "name": "After-Sales Management",
+      "desc": "Commissioning, maintenance and warranty."
+    },
+    {
+      "num": "04",
+      "name": "Tender",
+      "desc": "Public and private bid preparation."
+    },
+    {
+      "num": "05",
+      "name": "Logistics",
+      "desc": "Import, clearing and nationwide delivery."
+    },
+    {
+      "num": "06",
+      "name": "Marketing",
+      "desc": "Brand, catalogue and trade communications."
+    },
+    {
+      "num": "07",
+      "name": "Finance",
+      "desc": "Invoicing, terms and LC documentation."
+    },
+    {
+      "num": "08",
+      "name": "HR & Admin",
+      "desc": "People, facilities and office operations."
+    }
   ],
   "domains": [
-    { "id": "solar", "label": "Solar & Storage" },
-    { "id": "power", "label": "Power & Backup" },
-    { "id": "water", "label": "Water & Controls" },
-    { "id": "data", "label": "Data & Infrastructure" }
+    {
+      "id": "solar",
+      "label": "Solar & Storage"
+    },
+    {
+      "id": "power",
+      "label": "Power & Backup"
+    },
+    {
+      "id": "water",
+      "label": "Water & Controls"
+    },
+    {
+      "id": "data",
+      "label": "Data & Infrastructure"
+    }
   ]
 }

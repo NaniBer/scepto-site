@@ -1,4 +1,5 @@
 import { useEffect, useState, useCallback } from "react";
+import contentFallback from "../../public/content.json";
 
 const TABS = [
   { id: "contact", label: "Contact" },
@@ -30,22 +31,22 @@ export default function Admin() {
     }
   }, []);
 
-  const loadData = useCallback(async (pw) => {
+  const loadData = useCallback(async () => {
     setLoading(true);
     try {
       const resp = await fetch(API);
-      if (!resp.ok) throw new Error("Failed to load");
+      if (!resp.ok) throw new Error("API unavailable");
       const json = await resp.json();
       setData(json);
-    } catch (err) {
-      setMsg({ type: "error", text: err.message });
+    } catch {
+      setData(contentFallback);
     }
     setLoading(false);
   }, []);
 
   useEffect(() => {
-    if (authed && !data) loadData(password);
-  }, [authed, data, password, loadData]);
+    if (authed && !data) loadData();
+  }, [authed, data, loadData]);
 
   const handleLogin = (e) => {
     e.preventDefault();
